@@ -1,0 +1,24 @@
+[
+    {
+        "model": "sales.item",
+        "pk": 1,
+        "fields": {
+            "category": 1,
+            "name": "Wireless Mouse",
+            "description": "Bluetooth wireless mouse",
+            "price": "19.99",
+            "stock_quantity": 100
+        }
+    },
+    {
+        "model": "sales.item",
+        "pk": 2,
+        "fields": {
+            "category": 2,
+            "name": "Denim Jacket",
+            "description": "Fashionable denim jacket",
+            "price": "49.99",
+            "stock_quantity": 50
+        }
+    }
+]

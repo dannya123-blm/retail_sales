@@ -1,0 +1,18 @@
+[
+    {
+        "model": "sales.category",
+        "pk": 1,
+        "fields": {
+            "name": "Electronics",
+            "description": "Electronic gadgets and devices"
+        }
+    },
+    {
+        "model": "sales.category",
+        "pk": 2,
+        "fields": {
+            "name": "Clothing",
+            "description": "Apparel and fashion items"
+        }
+    }
+]

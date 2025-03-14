@@ -1,0 +1,11 @@
+[
+    {
+        "model": "sales.order",
+        "pk": 1,
+        "fields": {
+            "customer": 2,
+            "order_date": "2025-03-15T12:00:00Z",
+            "total_amount": "39.98"
+        }
+    }
+]

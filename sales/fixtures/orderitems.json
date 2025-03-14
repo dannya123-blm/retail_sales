@@ -1,0 +1,12 @@
+[
+    {
+        "model": "sales.orderitem",
+        "pk": 1,
+        "fields": {
+            "order": 1,
+            "item": 1,
+            "quantity": 2,
+            "item_price": "19.99"
+        }
+    }
+]
