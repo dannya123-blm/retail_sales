@@ -7,7 +7,7 @@ django.setup()
 
 from django.contrib.auth.models import Group, Permission
 from django.contrib.contenttypes.models import ContentType
-from sales.models import Category, Item, Order, OrderItem
+from sales.mQodels import Category, Item, Order, OrderItem
 
 # Define roles clearly
 roles = {
