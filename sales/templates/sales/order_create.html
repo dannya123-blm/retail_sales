@@ -1,0 +1,23 @@
+{% extends 'sales/base.html' %}
+
+{% block title %}Create Order{% endblock %}
+
+{% block content %}
+<h2>Create Order</h2>
+<form method="post">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="item" class="form-label">Item</label>
+    <select class="form-select" name="item" id="item">
+      {% for item in items %}
+        <option value="{{ item.id }}">{{ item.name }} (€{{ item.price }})</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="quantity" class="form-label">Quantity</label>
+    <input type="number" name="quantity" id="quantity" class="form-control" min="1" value="1" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Add to Order</button>
+</form>
+{% endblock %}
