@@ -31,7 +31,6 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-
 class Item(models.Model):
     item_id = models.AutoField(primary_key=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, related_name="items")
