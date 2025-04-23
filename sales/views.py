@@ -10,11 +10,13 @@ def create_order(request):
         quantity = int(request.POST['quantity'])
         item = get_object_or_404(Item, id=item_id)
 
-        # Create or get current user's pending order
         order, created = Order.objects.get_or_create(customer=request.user, status='PENDING')
 
-        # Check if item already in order
-        order_item, created = OrderItem.objects.get_or_create(order=order, item=item, defaults={'quantity': quantity, 'item_price': item.price})
+        order_item, created = OrderItem.objects.get_or_create(
+            order=order,
+            item=item,
+            defaults={'quantity': quantity, 'item_price': item.price}
+        )
         if not created:
             order_item.quantity += quantity
             order_item.save()
@@ -22,3 +24,10 @@ def create_order(request):
         return redirect('order_summary')
 
     return render(request, 'sales/order_create.html', {'items': items})
+
+@login_required
+def order_summary(request):
+    order = Order.objects.filter(customer=request.user, status='PENDING').first()
+    return render(request, 'sales/order_summary.html', {'order': order})
+
+
