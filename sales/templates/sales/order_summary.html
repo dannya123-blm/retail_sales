@@ -1,31 +1,21 @@
-{% extends 'sales/base.html' %}
+<!-- sales/templates/sales/order_summary.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Summary</title>
+</head>
+<body>
+    <h1>Order Summary</h1>
+    <h3>Order ID: {{ order.id }}</h3>
+    <h3>Customer: {{ order.user.username }}</h3>
 
-{% block title %}Order Summary{% endblock %}
+    <h3>Items:</h3>
+    <ul>
+        {% for item in order.items.all %}
+            <li>{{ item.name }} - ${{ item.price }}</li>
+        {% endfor %}
+    </ul>
 
-{% block content %}
-<h2>Your Order</h2>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Item</th>
-      <th>Qty</th>
-      <th>Price</th>
-      <th>Subtotal</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for item in order.items.all %}
-      <tr>
-        <td>{{ item.item.name }}</td>
-        <td>{{ item.quantity }}</td>
-        <td>€{{ item.item_price }}</td>
-        <td>€{{ item.quantity|mul:item.item_price }}</td>
-      </tr>
-    {% endfor %}
-    <tr>
-      <td colspan="3"><strong>Total</strong></td>
-      <td><strong>€{{ order.total_amount }}</strong></td>
-    </tr>
-  </tbody>
-</table>
-{% endblock %}
+    <h3>Total Price: ${{ total_price }}</h3>
+</body>
+</html>

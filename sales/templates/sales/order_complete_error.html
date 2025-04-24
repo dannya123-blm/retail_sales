@@ -1,0 +1,12 @@
+<!-- sales/templates/sales/order_complete_error.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Completion Error</title>
+</head>
+<body>
+    <h1>Error</h1>
+    <p>{{ error_message }}</p>
+    <a href="{% url 'order_summary' order_id=order.id %}">Go Back to Order Summary</a>
+</body>
+</html>
